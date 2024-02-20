@@ -1,9 +1,10 @@
 --1-Hangi ülkeden kaç adet sipariş aldım?
 
-```` SELECT c.country, COUNT(o.order_id) as total_orders 
+````SELECT c.country, COUNT(o.order_id) as total_orders 
 FROM customers c
 INNER JOIN orders o ON c.customer_id = o.customer_id
-GROUP BY c.country ````
+GROUP BY c.country````
+
 
 --2-Ürün kategorilerinin ortalama ürün fiyatı nedir? 
 
