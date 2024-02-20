@@ -9,12 +9,12 @@ GROUP BY c.country
 
 ### 2-Ürün kategorilerinin ortalama ürün fiyatı nedir? 
 ```
-SELECT category_id,AVG(unit_price) as "Ortalama Ürün Fiyatı" from products
+SELECT category_id,AVG(unit_price) as "Ortalama_Urun_Fiyati" from products
 group by category_id
 ```
 ### 3-Her müşteri için toplam kaç adet sipariş verilmiş?
 ```
-SELECT c.contact_name as "Müşteri adı", COUNT(o.order_id) as "verdiği sipariş adeti" 
+SELECT c.contact_name as "Müşteri adı", COUNT(o.order_id) as "verdigi_siparis_adeti" 
 FROM orders o
 INNER JOIN customers c ON o.customer_id = c.customer_id
 GROUP BY c.contact_name
@@ -22,7 +22,7 @@ GROUP BY c.contact_name
 ### 4-Her yıl için kaç adet sipariş aldım? 
 ```
 SELECT
-    EXTRACT(year FROM o.order_date) AS "Yıl",COUNT(*) AS "Sipariş Adeti" FROM orders o  
+    EXTRACT(year FROM o.order_date) AS "Yıl",COUNT(*) AS "Siparis_Adeti" FROM orders o  
 GROUP BY
     EXTRACT(year FROM o.order_date)
 ```
@@ -52,7 +52,7 @@ join order_details od on o.order_id = od.order_id
 
 ### 8 En kârlı satış yapan çalışanım hangisi?
 ```
-SELECT e.first_name,SUM(od.unit_price*od.quantity) as "En karlı" from order_details od
+SELECT e.first_name,SUM(od.unit_price*od.quantity) as "En_karlı" from order_details od
 INNER JOIN orders o ON od.order_id=o.order_id
 INNER JOIN employees e ON o.employee_id=e.employee_id
 group by e.first_name
